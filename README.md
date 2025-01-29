@@ -43,26 +43,4 @@ Fork it.
 Create new branch to contribute your changes.
 Commit all your changes to your branch.
 Submit a pull request.
-Screenshot:
 
-Admin Home - Google Chrome 20-08-2020 01_59_35 PM
-
-Admin Home - Google Chrome 20-08-2020 02_00_03 PM
-
-Admin Home - Google Chrome 20-08-2020 02_00_38 PM
-
-Admin Home - Google Chrome 20-08-2020 02_00_59 PM
-
-Admin Home - Google Chrome 20-08-2020 02_01_58 PM
-
-Admin Home - Google Chrome 20-08-2020 02_02_23 PM
-
-Patient List - Google Chrome 20-08-2020 02_03_16 PM
-
-Admin Login:
-
-Admin Home - Google Chrome 20-08-2020 01_59_17 PM
-
-Admin Dashboard:
-
-Admin Home - Google Chrome 20-08-2020 01_58_45 PM
