@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet("/AddDoctor")
-public class AddDoctor extends HttpServlet {
+@WebServlet("/AddRecp")
+public class AddRecp extends HttpServlet {
 
     private int i;
 
@@ -40,53 +40,36 @@ public class AddDoctor extends HttpServlet {
             Date todaysDate = new Date();
             DateFormat df2 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
-            String sid = request.getParameter("id");
-            int id = Integer.parseInt(sid);
             String fname = request.getParameter("fname");
             String lname = request.getParameter("lname");
-            String gender = request.getParameter("gender");
             String phone = request.getParameter("Mobile");
-            String city = request.getParameter("City");
-            String email = request.getParameter("email");
-            String age = request.getParameter("age");
-            String address = request.getParameter("address");
-            String qualification = request.getParameter("qualification");
-
             String DateAndTime = df2.format(todaysDate);
 
             Connection con = DatabaseConnection.initializeDatabase();
-            PreparedStatement pst = con.prepareStatement("insert into doctor values(?,?,?,?,?,?,?,?,?,?,?)");
-            pst.setInt(1, id);
-            pst.setString(5, phone);
-            pst.setString(2, fname);
-            pst.setString(3, lname);
-            pst.setString(4, gender);
-            pst.setString(6, city);
-            pst.setString(7, email);
-            pst.setString(8, age);
-            pst.setString(9, address);
-            pst.setString(10, DateAndTime);
-            pst.setString(11, qualification);
+            PreparedStatement pst = con.prepareStatement("insert into recp values(?,?,?,?)");
+            pst.setString(1, fname);
+            pst.setString(2, lname);
+            pst.setString(3, phone);
+            pst.setString(4, DateAndTime);
 
             i = pst.executeUpdate();
             if (i > 0) {
                 pw.println("<script type=\"text/javascript\">");
-                pw.println("alert('Data Add Successfully..!');");
+                pw.println("alert('Add Successfully..!');");
                 pw.println("window.location.href = \"AdminHome.jsp\";");
                 pw.println("</script>");
                 //RequestDispatcher rd = request.getRequestDispatcher("AdminHome.jsp");
                 //rd.forward(request, response);
             } else {
                 pw.println("<script type=\"text/javascript\">");
-                pw.println("alert('Failed !!!!,try Again Later!');");
-                pw.println("window.location.href = \"addDoctor.jsp\";");
+                pw.println("alert('Incorrect Data...!');");
+                pw.println("window.location.href = \"AddRecp.jsp\";");
                 pw.println("</script>");
-                //RequestDispatcher rd = request.getRequestDispatcher("addDoctor.jsp");
+                //RequestDispatcher rd = request.getRequestDispatcher("AddRecp.jsp");
                 //rd.forward(request, response);
             }
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(AddPatient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
